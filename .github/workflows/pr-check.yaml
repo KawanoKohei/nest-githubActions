@@ -1,0 +1,44 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+    
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'pnpm'
+    
+    - name: 🚀 Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+    
+    - name: 📋 Install dependencies
+      run: pnpm install
+    
+    - name: 🧹 Code quality check (Biome)
+      run: pnpm run check
+    
+    - name: 🏗️ Build check (TypeScript)
+      run: pnpm run build
+    
+    - name: 🧪 Run tests (Vitest)
+      run: pnpm run test
+    
+    - name: ✅ Success message
+      run: |
+        echo "🎉 All checks passed!"
+        echo "✅ Biome check: Passed"
+        echo "✅ TypeScript build: Passed"  
+        echo "✅ Tests: Passed"
