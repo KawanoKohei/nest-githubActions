@@ -1,5 +1,5 @@
 ## Description
-このリポジトリは、NestJSとGithubActionsを勉強するためのものです。
+このリポジトリは、NestJSとGithubActionsを勉強するためのものであり、自由気ままに書いています。
 
 ## Project setup
 
