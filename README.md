@@ -1,2 +1,2 @@
 # nest-githubActions
-このブランチは、NestJSとGithubActionsの勉強のために作る
+NestJSとGithubActionsの勉強のために作った
